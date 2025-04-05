@@ -3,6 +3,7 @@
 
 /* ALU */
 /* 10 Points */
+/* Aidan*/
 void ALU(unsigned A,unsigned B,char ALUControl,unsigned *ALUresult,char *Zero)
 {
 
@@ -10,6 +11,7 @@ void ALU(unsigned A,unsigned B,char ALUControl,unsigned *ALUresult,char *Zero)
 
 /* instruction fetch */
 /* 10 Points */
+/* Aidan*/
 int instruction_fetch(unsigned PC,unsigned *Mem,unsigned *instruction)
 {
 
