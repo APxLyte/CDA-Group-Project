@@ -27,6 +27,7 @@ void instruction_partition(unsigned instruction, unsigned *op, unsigned *r1,unsi
 
 /* instruction decode */
 /* 15 Points */
+//Isaac
 int instruction_decode(unsigned op,struct_controls *controls)
 {
 
@@ -34,6 +35,7 @@ int instruction_decode(unsigned op,struct_controls *controls)
 
 /* Read Register */
 /* 5 Points */
+//Isaac
 void read_register(unsigned r1,unsigned r2,unsigned *Reg,unsigned *data1,unsigned *data2)
 {
 
@@ -42,6 +44,7 @@ void read_register(unsigned r1,unsigned r2,unsigned *Reg,unsigned *data1,unsigne
 
 /* Sign Extend */
 /* 10 Points */
+//Isaac
 void sign_extend(unsigned offset,unsigned *extended_value)
 {
 
