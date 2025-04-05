@@ -14,7 +14,7 @@ void ALU(unsigned A,unsigned B,char ALUControl,unsigned *ALUresult,char *Zero)
 /* Aidan*/
 int instruction_fetch(unsigned PC,unsigned *Mem,unsigned *instruction)
 {
-
+  // PC >> 2; Gets array index
 }
 
 
