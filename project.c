@@ -49,6 +49,12 @@ void read_register(unsigned r1,unsigned r2,unsigned *Reg,unsigned *data1,unsigne
 //Isaac
 void sign_extend(unsigned offset,unsigned *extended_value)
 {
+  /*If postive{
+    Extend with zeros
+  }*/
+  /*If negative{
+    Extend with ones
+  }*/
 
 }
 
