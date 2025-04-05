@@ -40,7 +40,11 @@ int instruction_decode(unsigned op,struct_controls *controls)
 //Isaac
 void read_register(unsigned r1,unsigned r2,unsigned *Reg,unsigned *data1,unsigned *data2)
 {
-
+  //According to spimcore.c Reg works as the array of registers :)
+  *data1 = Reg[r1]
+  *data2 = Reg[r2]
+  
+  //return *data1, *data2  --- I don't believe you need to return a void to update values in void func
 }
 
 
