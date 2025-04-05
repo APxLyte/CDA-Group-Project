@@ -15,6 +15,8 @@ void ALU(unsigned A,unsigned B,char ALUControl,unsigned *ALUresult,char *Zero)
 int instruction_fetch(unsigned PC,unsigned *Mem,unsigned *instruction)
 {
   // PC >> 2; Gets array index
+  // Mem already populated, PC will be initialized to address (0x4000)
+  // Check for word alignment
 }
 
 
