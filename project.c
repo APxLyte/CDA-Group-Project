@@ -43,8 +43,8 @@ int instruction_decode(unsigned op,struct_controls *controls)
 void read_register(unsigned r1,unsigned r2,unsigned *Reg,unsigned *data1,unsigned *data2)
 {
   //According to spimcore.c Reg works as the array of registers :)
-  *data1 = Reg[r1]
-  *data2 = Reg[r2]
+  *data1 = Reg[r1];
+  *data2 = Reg[r2];
   
   //return *data1, *data2  --- I don't believe you need to return a void to update values in void func
 }
@@ -53,14 +53,20 @@ void read_register(unsigned r1,unsigned r2,unsigned *Reg,unsigned *data1,unsigne
 /* Sign Extend */
 /* 10 Points */
 //Isaac
-void sign_extend(unsigned offset,unsigned *extended_value)
+void sign_extend(unsigned offset,unsigned *extended_value) //Extending from 16 bits to 32
 {
-  /*If postive{
-    Extend with zeros
-  }*/
-  /*If negative{
-    Extend with ones
-  }*/
+  /*If postive{Extend with zeros}*/
+  /*If negative{Extend with ones}*/
+  testValue = (offset>>15); //Check most significant bit
+  switch(testValue){
+    case 1:
+      *extended_value = offset | 0xFFFF0000; //Negative so extend with 1's
+      break;
+    case 0:
+      *extended_value = offset | 0x0000FFFF; //Positive so extend with zeros
+      break;
+  }
+  
 
 }
 
