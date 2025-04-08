@@ -63,7 +63,7 @@ void sign_extend(unsigned offset,unsigned *extended_value) //Extending from 16 b
       *extended_value = offset | 0xFFFF0000; //Negative so extend with 1's
       break;
     case 0:
-      *extended_value = offset | 0x0000FFFF; //Positive so extend with zeros
+      *extended_value = offset & 0x0000FFFF; //Positive so extend with zeros
       break;
   }
   
