@@ -16,8 +16,10 @@ int instruction_fetch(unsigned PC,unsigned *Mem,unsigned *instruction)
 {
   if (PC % 4 == 0){ //Check for word alignment
     *instruction = Mem[PC >> 2];
+    
     return 0; //no halt
   }
+    
   else{
     return 1; //halt
   }
@@ -93,11 +95,13 @@ int rw_memory(unsigned ALUresult,unsigned data2,char MemWrite,char MemRead,unsig
   if (ALUresult % 4 == 0){ 
     if (memRead == 1){ 
       *memdata = Mem[ALUresult >> 2]; //read mem location addresed by ALUresult to memdata 
+      
       return 0; //no halt
     }
       
-    else if (memWrite == 1){
+    if (memWrite == 1){
       Mem[ALUresult >> 2] = data2; //write data2 to mem location addressed by ALUresult
+      
       return 0; //no halt
     }
   }
