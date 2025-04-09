@@ -6,7 +6,24 @@
 /* Aidan*/
 void ALU(unsigned A,unsigned B,char ALUControl,unsigned *ALUresult,char *Zero)
 {
-
+  // We need 7 cases (Add, Subtract, Set less than (signed and unsigned), And, Or, Shift left, A')
+  // Also need a case for undefined behavior (implement last)
+  switch(ALUControl){
+    case 0: // Add
+      *ALUresult = A + B;
+      break;
+    case 1: // Subtract
+      *ALUresult = A - B;
+      break;
+    case 2: // First Set less than (signed)
+      if((int)A < (int)B){
+        *ALUresult = 1;
+      } else {
+        *ALUresult = 0;
+      }
+      break;
+    case 3: // Second Set less than (unsigned)
+  }
 }
 
 /* instruction fetch */
