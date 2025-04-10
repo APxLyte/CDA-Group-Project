@@ -77,9 +77,19 @@ int instruction_fetch(unsigned PC,unsigned *Mem,unsigned *instruction)
 
 /* instruction partition */
 /* 10 Points */
+//Max
 void instruction_partition(unsigned instruction, unsigned *op, unsigned *r1,unsigned *r2, unsigned *r3, unsigned *funct, unsigned *offset, unsigned *jsec)
 {
-
+ *op = (instruction & 0xFC000000) >> 26;
+ *r1 = (instruction & 0x03E000000) >> 21;
+ *r2 = (instruction & 0x001F0000) >> 16;
+ *r3 = (instruction & 0x0000F800) >> 11;
+ *funct =  (instruction & 0x0000003F);
+ *offset = (instruction & 0x0000FFFF);
+ *jsec = (instruction & 0x03FFFFFF);
+  
+/* essentially what this code does is break down the big "instruction" 32 bit number its given into series of smaller bit numbers 
+(hence the instruction_"partition") and assign them to each variable that way the CPU can run the program (what operation, registers, etc) */
 }
 
 
