@@ -176,23 +176,34 @@ int ALU_operations(unsigned data1,unsigned data2,unsigned extended_value,unsigne
 //Dillon
 int rw_memory(unsigned ALUresult,unsigned data2,char MemWrite,char MemRead,unsigned *memdata,unsigned *Mem)
 {
-  if (ALUresult % 4 == 0){ 
-    if (memRead == 1){ 
+  if (memRead == 1){ //Check if memRead is asserted
+    if (ALUresult % 4 == 0){ //Check alignment
       *memdata = Mem[ALUresult >> 2]; //read mem location addresed by ALUresult to memdata 
       
       return 0; //no halt
     }
+    
+    else{
+      return 1; //halt
+    }
+  }
       
-    if (memWrite == 1){
+  if (memWrite == 1){ //Check if memWrite is asserted
+    if (ALUresult % 4 == 0){ //Check alignment
       Mem[ALUresult >> 2] = data2; //write data2 to mem location addressed by ALUresult
       
       return 0; //no halt
     }
-  }
     
-  else {
-    return 1; //halt
+    else{
+      return 1;
+    }
   }
+}
+
+  return 0; 
+  //no halt I think since it said halt only if ALUresult represents address 
+  //(which I think would only occur if memRead or memWrite are asserted)
 }
 
 
