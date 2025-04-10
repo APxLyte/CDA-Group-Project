@@ -195,7 +195,6 @@ int rw_memory(unsigned ALUresult,unsigned data2,char MemWrite,char MemRead,unsig
       return 1;
     }
   }
-}
 
   return 0; 
   //no halt I think since it said halt only if ALUresult represents address 
