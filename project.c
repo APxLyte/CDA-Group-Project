@@ -99,6 +99,35 @@ void instruction_partition(unsigned instruction, unsigned *op, unsigned *r1,unsi
 //Isaac
 int instruction_decode(unsigned op,struct_controls *controls)
 {
+  //This needs to effect multiple things based on this struct
+  /*typedef struct
+  {
+  char RegDst;
+  char Jump;
+  char Branch;
+  char MemRead;
+  char MemtoReg;
+  char ALUOp;
+  char MemWrite;
+  char ALUSrc;
+  char RegWrite;
+  }struct_controls;
+  The struct_controls *controls lets us use it like controls->RegDst = value
+  */
+  //This will have to be a case by case, so advising either and If/then or switch statements
+  //it has to be something similar to 
+  /*if(op == <value>){
+      controls->RegDst = <value>;
+      controls->Jump = <value>;
+      controls->Branch = <value>;
+      controls->MemRead = <value>;
+      controls->MemtoReg = <value>;
+      controls->ALUOp = <value>;
+      controls->MemWrite = <value>;
+      controls->ALUSrc = <value>;
+      controls->RegWrite = <value>;
+    } if(etc)
+  
 
 }
 
