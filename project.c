@@ -29,10 +29,10 @@ void ALU(unsigned A,unsigned B,char ALUControl,unsigned *ALUresult,char *Zero)
         *ALUresult = 0;
       }
       break;
-    case 4: // And
+    case 4: // And (unsure if its 1 & or 2)
       *ALUresult = A && B;
       break;
-    case 5: // Or
+    case 5: // Or (unsure if its 1 | or 2)
       *ALUresult = A || B;
       break;
     case 6: // Shift left (16 bits)
