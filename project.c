@@ -23,6 +23,34 @@ void ALU(unsigned A,unsigned B,char ALUControl,unsigned *ALUresult,char *Zero)
       }
       break;
     case 3: // Second Set less than (unsigned)
+      if(A < B){
+        *ALUresult = 1;
+      } else {
+        *ALUresult = 0;
+      }
+      break;
+    case 4: // And
+      *ALUresult = A && B;
+      break;
+    case 5: // Or
+      *ALUresult = A || B;
+      break;
+    case 6: // Shift left (16 bits)
+      *ALUresult = B << 16;
+      break;
+    case 7: // A' (A negate)
+      *ALUresult = !A;
+      break;
+    default: // For undefined behavior
+      *ALUresult = 0;
+      break;
+  }
+
+  // Now that the cases are defined all thats left is setting a flag (indicate if result is 0)
+  if(*ALUresult == 0){
+    *Zero = 1;
+  } else{
+    *Zero = 0;
   }
 }
 
