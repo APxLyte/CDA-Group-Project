@@ -207,7 +207,12 @@ int rw_memory(unsigned ALUresult,unsigned data2,char MemWrite,char MemRead,unsig
 //Dillon
 void write_register(unsigned r2,unsigned r3,unsigned memdata,unsigned ALUresult,char RegWrite,char RegDst,char MemtoReg,unsigned *Reg)
 {
-
+  /*
+  Write the data (ALUresult or memdata) to a register (Reg) addressed by r2 or r3.
+  If RegWrite == 1 and MemtoReg == 1, then bring data from memory.
+  If RegWrite == 1 and MemtoReg == 0, then bring data from ALUresult.
+  If RegWrite == 1, place write data into the register specified by RegDst.
+  */
 }
 
 /* PC update */
