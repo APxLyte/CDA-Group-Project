@@ -179,8 +179,6 @@ int rw_memory(unsigned ALUresult,unsigned data2,char MemWrite,char MemRead,unsig
   if (memRead == 1){ //Check if memRead is asserted
     if (ALUresult % 4 == 0){ //Check alignment
       *memdata = Mem[ALUresult >> 2]; //read mem location addresed by ALUresult to memdata 
-      
-      return 0; //no halt
     }
     
     else{
@@ -191,8 +189,6 @@ int rw_memory(unsigned ALUresult,unsigned data2,char MemWrite,char MemRead,unsig
   if (memWrite == 1){ //Check if memWrite is asserted
     if (ALUresult % 4 == 0){ //Check alignment
       Mem[ALUresult >> 2] = data2; //write data2 to mem location addressed by ALUresult
-      
-      return 0; //no halt
     }
     
     else{
