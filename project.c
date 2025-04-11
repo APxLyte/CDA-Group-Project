@@ -287,6 +287,17 @@ void write_register(unsigned r2,unsigned r3,unsigned memdata,unsigned ALUresult,
   If RegWrite == 1 and MemtoReg == 0, then bring data from ALUresult.
   If RegWrite == 1, place write data into the register specified by RegDst.
   */
+  //I think its an either or situation
+  /*I think it needs to start as 
+  if(RegWrite == 1){ //I think these values come from the code Im working on in instruction decode
+    if(MemtoReg == 1{
+      //Then register is decided by RegDst
+    }
+    if(MemtoReg == 0{
+      //Then register is decided by RegDst
+    }
+  }
+  
 }
 
 /* PC update */
