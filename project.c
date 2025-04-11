@@ -304,8 +304,6 @@ void sign_extend(unsigned offset,unsigned *extended_value) //Extending from 16 b
       *extended_value = offset & 0x0000FFFF; //Positive so extend with zeros
       break;
   }
-  
-
 }
 
 /* ALU operations */
@@ -362,7 +360,7 @@ void write_register(unsigned r2,unsigned r3,unsigned memdata,unsigned ALUresult,
   if(RegWrite == 1){ //I think these values come from the code Im working on in instruction decode
     unsigned write_data; //Storage info variables 
     unsigned dest_reg;
-    if(MemtoReg == 1{
+    if(MemtoReg == 1){
       write_data = memdata;//load from mem
     }
     else{
