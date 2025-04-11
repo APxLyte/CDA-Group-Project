@@ -295,7 +295,7 @@ void sign_extend(unsigned offset,unsigned *extended_value) //Extending from 16 b
 {
   /*If postive{Extend with zeros}*/
   /*If negative{Extend with ones}*/
-  testValue = (offset>>15); //Check most significant bit
+  int testValue = (offset>>15); //Check most significant bit
   switch(testValue){
     case 1:
       *extended_value = offset | 0xFFFF0000; //Negative so extend with 1's
