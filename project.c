@@ -137,25 +137,25 @@ int instruction_decode(unsigned op,struct_controls *controls)
       controls->RegWrite = <value>;
     } if(etc) */
   if(op == 0x0){ // R-type op code
-    controls->RegDst = 0;
+    controls->RegDst = 1;
     controls->Jump = 0;
     controls->Branch = 0;
     controls->MemRead = 0;
     controls->MemtoReg = 0;
-    controls->ALUOp = 0;
+    controls->ALUOp = 7; //111
     controls->MemWrite = 0;
     controls->ALUSrc = 0;
-    controls->RegWrite = 0;
+    controls->RegWrite = 1;
   }
   if(op == 0x2){ // Jumping 
-    controls->RegDst = 0;
-    controls->Jump = 0;
+    controls->RegDst = 2; 
+    controls->Jump = 1;
     controls->Branch = 0;
     controls->MemRead = 0;
-    controls->MemtoReg = 0;
+    controls->MemtoReg = 2;
     controls->ALUOp = 0;
     controls->MemWrite = 0;
-    controls->ALUSrc = 0;
+    controls->ALUSrc = 2;
     controls->RegWrite = 0;
   }
   if(op == 0x8){ // Add immediate
@@ -166,8 +166,19 @@ int instruction_decode(unsigned op,struct_controls *controls)
     controls->MemtoReg = 0;
     controls->ALUOp = 0;
     controls->MemWrite = 0;
-    controls->ALUSrc = 0;
-    controls->RegWrite = 0;
+    controls->ALUSrc = 1;
+    controls->RegWrite = 1;
+  }
+  if(op == 0xC){ // And immediate
+    controls->RegDst = 0;
+    controls->Jump = 0;
+    controls->Branch = 0;
+    controls->MemRead = 0;
+    controls->MemtoReg = 0;
+    controls->ALUOp = 4;
+    controls->MemWrite = 0;
+    controls->ALUSrc = 1;
+    controls->RegWrite = 1;
   }
   if(op == 0xD){ // Oring immediate
     controls->RegDst = 0;
@@ -175,51 +186,51 @@ int instruction_decode(unsigned op,struct_controls *controls)
     controls->Branch = 0;
     controls->MemRead = 0;
     controls->MemtoReg = 0;
-    controls->ALUOp = 0;
+    controls->ALUOp = 5;
     controls->MemWrite = 0;
-    controls->ALUSrc = 0;
-    controls->RegWrite = 0;
+    controls->ALUSrc = 1;
+    controls->RegWrite = 1;
   }
-  if(op == 0x23){ // loading word
+  if(op == 0x23){ // loading word (The cursed slowing down function)
     controls->RegDst = 0;
     controls->Jump = 0;
     controls->Branch = 0;
-    controls->MemRead = 0;
-    controls->MemtoReg = 0;
+    controls->MemRead = 1;
+    controls->MemtoReg = 1;
     controls->ALUOp = 0;
     controls->MemWrite = 0;
-    controls->ALUSrc = 0;
-    controls->RegWrite = 0;
+    controls->ALUSrc = 1;
+    controls->RegWrite = 1;
   }
   if(op == 0x2B){ // storing word
-    controls->RegDst = 0;
+    controls->RegDst = 2;
     controls->Jump = 0;
     controls->Branch = 0;
     controls->MemRead = 0;
-    controls->MemtoReg = 0;
+    controls->MemtoReg = 2;
     controls->ALUOp = 0;
-    controls->MemWrite = 0;
-    controls->ALUSrc = 0;
+    controls->MemWrite = 1;
+    controls->ALUSrc = 1;
     controls->RegWrite = 0;
   }
   if(op == 0x4){ // branching if equal
-    controls->RegDst = 0;
+    controls->RegDst = 2;
     controls->Jump = 0;
-    controls->Branch = 0;
+    controls->Branch = 1;
     controls->MemRead = 0;
-    controls->MemtoReg = 0;
-    controls->ALUOp = 0;
+    controls->MemtoReg = 2;
+    controls->ALUOp = 1;
     controls->MemWrite = 0;
     controls->ALUSrc = 0;
     controls->RegWrite = 0;
   }
   if(op == 0x5){ // branching if not equal
-    controls->RegDst = 0;
+    controls->RegDst = 2;
     controls->Jump = 0;
-    controls->Branch = 0;
+    controls->Branch = 1;
     controls->MemRead = 0;
-    controls->MemtoReg = 0;
-    controls->ALUOp = 0;
+    controls->MemtoReg = 2;
+    controls->ALUOp = 1;
     controls->MemWrite = 0;
     controls->ALUSrc = 0;
     controls->RegWrite = 0;
@@ -230,12 +241,25 @@ int instruction_decode(unsigned op,struct_controls *controls)
     controls->Branch = 0;
     controls->MemRead = 0;
     controls->MemtoReg = 0;
-    controls->ALUOp = 0;
+    controls->ALUOp = 2;
     controls->MemWrite = 0;
-    controls->ALUSrc = 0;
+    controls->ALUSrc = 1;
+    controls->RegWrite = 1;
+  }
+  if(op == 0xF){ // loading upper immediate
+    controls->RegDst = 1;
+    controls->Jump = 0;
+    controls->Branch = 0;
+    controls->MemRead = 0;
+    controls->MemtoReg = 0;
+    controls->ALUOp = 6;
+    controls->MemWrite = 0;
+    controls->ALUSrc = 1;
     controls->RegWrite = 0;
   }
+return 0;
 }
+
 
 
 /* Read Register */
