@@ -39,7 +39,7 @@ void ALU(unsigned A,unsigned B,char ALUControl,unsigned *ALUresult,char *Zero)
       *ALUresult = B << 16;
       break;
     case 7: // A' (A negate)
-      *ALUresult = !A;
+      *ALUresult = ~A;
       break;
     default: // For undefined behavior
       *ALUresult = 0;
