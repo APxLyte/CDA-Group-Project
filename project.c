@@ -98,7 +98,16 @@ void instruction_partition(unsigned instruction, unsigned *op, unsigned *r1,unsi
 /* 15 Points */
 //Isaac
 int instruction_decode(unsigned op,struct_controls *controls)
-{
+{ //Initializing all to zero just in case
+  controls->RegDst = 0;
+  controls->Jump = 0;
+  controls->Branch = 0;
+  controls->MemRead = 0;
+  controls->MemtoReg = 0;
+  controls->ALUOp = 0;
+  controls->MemWrite = 0;
+  controls->ALUSrc = 0;
+  controls->RegWrite = 0;
   //This needs to effect multiple things based on this struct
   /*typedef struct
   {
@@ -126,10 +135,86 @@ int instruction_decode(unsigned op,struct_controls *controls)
       controls->MemWrite = <value>;
       controls->ALUSrc = <value>;
       controls->RegWrite = <value>;
-    } if(etc)
-  
-
+    } if(etc) */
+  if(op == 0x0){ // R-type op code
+    controls->RegDst = 0;
+    controls->Jump = 0;
+    controls->Branch = 0;
+    controls->MemRead = 0;
+    controls->MemtoReg = 0;
+    controls->ALUOp = 0;
+    controls->MemWrite = 0;
+    controls->ALUSrc = 0;
+    controls->RegWrite = 0;
+  }
+  if(op == 0x0){ // Jumping 
+    controls->RegDst = 0;
+    controls->Jump = 0;
+    controls->Branch = 0;
+    controls->MemRead = 0;
+    controls->MemtoReg = 0;
+    controls->ALUOp = 0;
+    controls->MemWrite = 0;
+    controls->ALUSrc = 0;
+    controls->RegWrite = 0;
+  }
+  if(op == 0x0){ // Add immediate
+    controls->RegDst = 0;
+    controls->Jump = 0;
+    controls->Branch = 0;
+    controls->MemRead = 0;
+    controls->MemtoReg = 0;
+    controls->ALUOp = 0;
+    controls->MemWrite = 0;
+    controls->ALUSrc = 0;
+    controls->RegWrite = 0;
+  }
+  if(op == 0x0){ // Oring imediate
+    controls->RegDst = 0;
+    controls->Jump = 0;
+    controls->Branch = 0;
+    controls->MemRead = 0;
+    controls->MemtoReg = 0;
+    controls->ALUOp = 0;
+    controls->MemWrite = 0;
+    controls->ALUSrc = 0;
+    controls->RegWrite = 0;
+  }
+  if(op == 0x0){ // loading word
+    controls->RegDst = 0;
+    controls->Jump = 0;
+    controls->Branch = 0;
+    controls->MemRead = 0;
+    controls->MemtoReg = 0;
+    controls->ALUOp = 0;
+    controls->MemWrite = 0;
+    controls->ALUSrc = 0;
+    controls->RegWrite = 0;
+  }
+  if(op == 0x0){ // storing word
+    controls->RegDst = 0;
+    controls->Jump = 0;
+    controls->Branch = 0;
+    controls->MemRead = 0;
+    controls->MemtoReg = 0;
+    controls->ALUOp = 0;
+    controls->MemWrite = 0;
+    controls->ALUSrc = 0;
+    controls->RegWrite = 0;
+  }
+  if(op == 0x0){ // storing word
+    controls->RegDst = 0;
+    controls->Jump = 0;
+    controls->Branch = 0;
+    controls->MemRead = 0;
+    controls->MemtoReg = 0;
+    controls->ALUOp = 0;
+    controls->MemWrite = 0;
+    controls->ALUSrc = 0;
+    controls->RegWrite = 0;
+  }
 }
+
 
 /* Read Register */
 /* 5 Points */
