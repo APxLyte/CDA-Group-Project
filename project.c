@@ -268,6 +268,7 @@ int instruction_decode(unsigned op,struct_controls *controls)
     controls->ALUSrc = 1;
     controls->RegWrite = 1;
   }
+  //1's mean on, 2, are dont cares, zeros are off
 return 0;
 }
 
