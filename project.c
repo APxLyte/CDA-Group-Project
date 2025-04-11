@@ -320,7 +320,7 @@ int ALU_operations(unsigned data1,unsigned data2,unsigned extended_value,unsigne
 //Dillon
 int rw_memory(unsigned ALUresult,unsigned data2,char MemWrite,char MemRead,unsigned *memdata,unsigned *Mem)
 {
-  if (memRead == 1){ //Check if memRead is asserted
+  if (MemRead == 1){ //Check if memRead is asserted
     if (ALUresult % 4 == 0){ //Check alignment
       *memdata = Mem[ALUresult >> 2]; //read mem location addresed by ALUresult to memdata 
     }
@@ -330,7 +330,7 @@ int rw_memory(unsigned ALUresult,unsigned data2,char MemWrite,char MemRead,unsig
     }
   }
       
-  if (memWrite == 1){ //Check if memWrite is asserted
+  if (MemWrite == 1){ //Check if memWrite is asserted
     if (ALUresult % 4 == 0){ //Check alignment
       Mem[ALUresult >> 2] = data2; //write data2 to mem location addressed by ALUresult
     }
@@ -367,7 +367,7 @@ void write_register(unsigned r2,unsigned r3,unsigned memdata,unsigned ALUresult,
       //Then register is decided by RegDst
     }
   }
-  
+  */
 }
 
 /* PC update */
