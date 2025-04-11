@@ -374,6 +374,22 @@ void write_register(unsigned r2,unsigned r3,unsigned memdata,unsigned ALUresult,
 /* 10 Points */
 void PC_update(unsigned jsec,unsigned extended_value,char Branch,char Jump,char Zero,unsigned *PC)
 {
+    // Initializing nextPC
+  unsigned nextPC = *PC + 4;
 
+  // Nested if statements to perform branching when Branch is asserted and Zero is set
+  if(Branch != 0){
+    if(Zero != 0){
+      nextPC += (extended_value << 2);
+    }
+  }
+
+  // If statement to give a place to jump to (jump target)
+  if(Jump != 0){
+    nextPC = (nextPC & 0xF0000000) | (jsec << 2);
+  }
+
+  // Finally, we update PC
+  *PC = nextPC;
 }
 
