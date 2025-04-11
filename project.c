@@ -98,7 +98,8 @@ void instruction_partition(unsigned instruction, unsigned *op, unsigned *r1,unsi
 /* 15 Points */
 //Isaac
 int instruction_decode(unsigned op,struct_controls *controls)
-{ //Initializing all to zero just in case
+{ //This code tells what is on, what is off, and the proper jumps
+  //Initializing all to zero just in case
   controls->RegDst = 0;
   controls->Jump = 0;
   controls->Branch = 0;
