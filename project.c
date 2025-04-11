@@ -358,16 +358,24 @@ void write_register(unsigned r2,unsigned r3,unsigned memdata,unsigned ALUresult,
   If RegWrite == 1, place write data into the register specified by RegDst.
   */
   //I think its an either or situation
-  /*I think it needs to start as 
+  //I think it needs to start as 
   if(RegWrite == 1){ //I think these values come from the code Im working on in instruction decode
+    unsigned write_data; //Storage info variables 
+    unsigned dest_reg;
     if(MemtoReg == 1{
-      //Then register is decided by RegDst
+      write_data = memdata;//load from mem
     }
-    if(MemtoReg == 0{
-      //Then register is decided by RegDst
+    else{
+      write_data = ALUresult;//load from ALUres
     }
+    if (RegDst == 1){
+      dest_reg = r3; //R-type op
+    }
+    else{
+      dest_reg = r2; //I-type
+    }
+    Reg[dest_reg] = write_data;//actually writing the data to specified register
   }
-  */
 }
 
 /* PC update */
