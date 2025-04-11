@@ -202,17 +202,6 @@ int instruction_decode(unsigned op,struct_controls *controls)
     controls->ALUSrc = 0;
     controls->RegWrite = 0;
   }
-  if(op == 0x0){ // storing word
-    controls->RegDst = 0;
-    controls->Jump = 0;
-    controls->Branch = 0;
-    controls->MemRead = 0;
-    controls->MemtoReg = 0;
-    controls->ALUOp = 0;
-    controls->MemWrite = 0;
-    controls->ALUSrc = 0;
-    controls->RegWrite = 0;
-  }
 }
 
 
