@@ -324,6 +324,8 @@ extended_value,unsigned funct,char ALUOp,char ALUSrc,unsigned
   //Hints from slide
 
 //if r type instruction, see what operation is used 
+  if (ALUSrc == 1)
+    data2 = extended_value;
   if(ALUOp == 7){//It is an R-type instruction
     if (funct == 32) 
     {
@@ -360,13 +362,14 @@ extended_value,unsigned funct,char ALUOp,char ALUSrc,unsigned
     else{
       return 1; //Halt because invalid
     } 
-  else{
-    ALUControl = ALUp;
+  }else{
+    ALUControl = ALOp;
   }
   //If I-type
   //I think its either ALUcontrol = ALUOp (Because the number should map to it already) or we have to do something similar building a switch statement or If/then for the I types
 
-  ALU(A,B,ALUControl,ALUresult,Zero); //Got these from the function at the top
+  ALU(data1,data2,ALUControl,ALUresult,Zero); //Got these from the function at the top
+  return 0;
 }
 
 /* Read / Write Memory */
