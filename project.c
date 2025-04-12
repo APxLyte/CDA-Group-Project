@@ -359,8 +359,10 @@ extended_value,unsigned funct,char ALUOp,char ALUSrc,unsigned
     }
     else{
       return 1; //Halt because invalid
-  } else{
+    } 
+  else{
     ALUControl = ALUp;
+  }
   //If I-type
   //I think its either ALUcontrol = ALUOp (Because the number should map to it already) or we have to do something similar building a switch statement or If/then for the I types
 
