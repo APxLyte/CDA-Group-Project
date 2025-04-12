@@ -137,6 +137,9 @@ int instruction_decode(unsigned op,struct_controls *controls)
       controls->ALUSrc = <value>;
       controls->RegWrite = <value>;
     } if(etc) */
+  if (op == 0x3F) {
+    return 1; // Halt condition met
+  }
   if(op == 0x0){ // R-type op code
     controls->RegDst = 1;
     controls->Jump = 0;
