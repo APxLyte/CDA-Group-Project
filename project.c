@@ -330,8 +330,9 @@ What are we supposed to do with the arguments, extended_value and ALUsrc ?
 If you look at the diagram in Figure 2 of the project description, your ALUsrc is a control signal to a multiplexer, 
 which chooses between a sign extended_value, or data2 in order to send the outcome to the ALU for operation.
 */
+  char ALUControl;
 
- if(ALUOp == 7){//It is an R-type instruction
+  if(ALUOp == 7){//It is an R-type instruction
     //Look at function type [We are given variable "funct" I think we can make it into a switch or if/then for the following ALU operations:
       //Add
       //Subtract
@@ -343,7 +344,7 @@ which chooses between a sign extended_value, or data2 in order to send the outco
   //If I-type
   //I think its either ALUcontrol = ALUOp (Because the number should map to it already) or we have to do something similar building a switch statement or If/then for the I types
 
-  ALU(var1,var2,var3,var4,var5); //These are PLACEHOLDERS so they will need to be RENAMED and REPLACED
+  ALU(A,B,char ALUControl,ALUresult,Zero); //Got these from the function at the top
 }
 
 /* Read / Write Memory */
