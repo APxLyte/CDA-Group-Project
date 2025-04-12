@@ -344,7 +344,7 @@ which chooses between a sign extended_value, or data2 in order to send the outco
   //If I-type
   //I think its either ALUcontrol = ALUOp (Because the number should map to it already) or we have to do something similar building a switch statement or If/then for the I types
 
-  ALU(A,B,char ALUControl,ALUresult,Zero); //Got these from the function at the top
+  ALU(A,B,ALUControl,ALUresult,Zero); //Got these from the function at the top
 }
 
 /* Read / Write Memory */
