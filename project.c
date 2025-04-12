@@ -318,6 +318,19 @@ extended_value,unsigned funct,char ALUOp,char ALUSrc,unsigned
 ● Call ALU() function at the end.*/ 
   //Hints from slide
 
+//FAQ Answers:
+/*
+What R-type instructions are we supposed to set when ALUOp is equal to "111"? It just says "instruction is an R-type"?
+When the ALUOp control signal is 7 or 111, this tells the ALU control that it needs to figure out what operation to tell the ALU 
+what to do by looking at the funct field (bits[5-0]) of the instruction. This is called "multiple levels of decoding": the
+instruction_decode(...) function sets the initial ALUOp value of 7 and the ALU_operations(...) function should update 
+the ALUOp value based on the funct parameter.
+
+What are we supposed to do with the arguments, extended_value and ALUsrc ?
+If you look at the diagram in Figure 2 of the project description, your ALUsrc is a control signal to a multiplexer, 
+which chooses between a sign extended_value, or data2 in order to send the outcome to the ALU for operation.
+*/
+
   if(ALUOp == 7){//It is an R-type instruction
     //Look at function type
   }
