@@ -322,7 +322,7 @@ extended_value,unsigned funct,char ALUOp,char ALUSrc,unsigned
     //Look at function type
   }
 
-  ALU(var1,var2,var3,var4,var5);
+  ALU(var1,var2,var3,var4,var5); //These are PLACEHOLDERS so they will need to be RENAMED and REPLACED
 }
 
 /* Read / Write Memory */
