@@ -310,7 +310,19 @@ void sign_extend(unsigned offset,unsigned *extended_value) //Extending from 16 b
 /* 10 Points */
 int ALU_operations(unsigned data1,unsigned data2,unsigned extended_value,unsigned funct,char ALUOp,char ALUSrc,unsigned *ALUresult,char *Zero)
 {
+/*int ALU_operations(unsigned data1,unsigned data2,unsigned
+extended_value,unsigned funct,char ALUOp,char ALUSrc,unsigned
+*ALUresult,char *Zero)
+● This sets the parameters for the ALU’s A, B, and ALUControl inputs.
+● If this is an R-type instruction, look at funct.
+● Call ALU() function at the end.*/ 
+  //Hints from slide
 
+  if(ALUOp == 7){//It is an R-type instruction
+    //Look at function type
+  }
+
+  ALU(var1,var2,var3,var4,var5);
 }
 
 /* Read / Write Memory */
