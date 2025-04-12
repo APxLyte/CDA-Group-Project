@@ -333,7 +333,7 @@ extended_value,unsigned funct,char ALUOp,char ALUSrc,unsigned
     {
       ALUControl = 1;
     }
-    else if(funct == 42
+    else if(funct == 42)
     {
       ALUControl = 2;
     }
