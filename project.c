@@ -357,6 +357,8 @@ extended_value,unsigned funct,char ALUOp,char ALUSrc,unsigned
     {
       ALUControl = 7;
     }
+    else{
+      return 1; //Halt because invalid
   } else{
     ALUControl = ALUp;
   //If I-type
