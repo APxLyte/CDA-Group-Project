@@ -313,6 +313,8 @@ void sign_extend(unsigned offset,unsigned *extended_value) //Extending from 16 b
 /* 10 Points */
 int ALU_operations(unsigned data1,unsigned data2,unsigned extended_value,unsigned funct,char ALUOp,char ALUSrc,unsigned *ALUresult,char *Zero)
 {
+char ALUControl;
+  
 /*int ALU_operations(unsigned data1,unsigned data2,unsigned
 extended_value,unsigned funct,char ALUOp,char ALUSrc,unsigned
 *ALUresult,char *Zero)
@@ -321,28 +323,43 @@ extended_value,unsigned funct,char ALUOp,char ALUSrc,unsigned
 ● Call ALU() function at the end.*/ 
   //Hints from slide
 
-//FAQ Answers:
-/*
-What R-type instructions are we supposed to set when ALUOp is equal to "111"? It just says "instruction is an R-type"?
-When the ALUOp control signal is 7 or 111, this tells the ALU control that it needs to figure out what operation to tell the ALU 
-what to do by looking at the funct field (bits[5-0]) of the instruction. This is called "multiple levels of decoding": the
-instruction_decode(...) function sets the initial ALUOp value of 7 and the ALU_operations(...) function should update 
-the ALUOp value based on the funct parameter.
-
-What are we supposed to do with the arguments, extended_value and ALUsrc ?
-If you look at the diagram in Figure 2 of the project description, your ALUsrc is a control signal to a multiplexer, 
-which chooses between a sign extended_value, or data2 in order to send the outcome to the ALU for operation.
-*/
-  char ALUControl;
-
+//if r type instruction, see what operation is used 
   if(ALUOp == 7){//It is an R-type instruction
-    //Look at function type [We are given variable "funct" I think we can make it into a switch or if/then for the following ALU operations:
-      //Add
-      //Subtract
-      //OR
-      //AND
-      //SetLessThansigned
-      //SetLessThanUnsigned
+    if (funct == 32) 
+    {
+      ALUControl = 0;
+    }
+    else if(funct == 34)
+    {
+      ALUControl = 1;
+    }
+    else if(funct == 42
+    {
+      ALUControl = 2;
+    }
+    else if(funct == 43)
+    {
+      ALUControl = 3;
+    }
+    else if(funct == 36)
+    {
+      ALUControl = 4;
+    }
+    else if(funct == 37)
+    {
+      ALUControl = 5;
+    }
+    else if(funct == 6)
+    {
+      ALUControl = 6;
+    }
+    else if(funct == 39)
+    {
+      ALUControl = 7;
+    }
+    
+
+ 
   }
   //If I-type
   //I think its either ALUcontrol = ALUOp (Because the number should map to it already) or we have to do something similar building a switch statement or If/then for the I types
